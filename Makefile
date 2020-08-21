@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 SHA := latest
 TAG := latest
-IMAGE_TAG := harbor.kacsh.com/library/rke_build_container
+IMAGE_TAG := ${DOCKER_REGISTRY_URL}/library/rke_build_container
 
 build: ## Build the docker container and tag as latest
 	docker build -t ${IMAGE_TAG}:${TAG} .
