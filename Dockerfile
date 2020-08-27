@@ -1,4 +1,5 @@
 FROM alpine:3.12.0
+LABEL maintainer: "Keith Kacsh <keith@kacsh.com>"
 ENV RKE_VERSION=v1.1.4
 ENV KUBECTL_VERSION=v1.18.6
 ENV HELM_VERSION=v2.16.9
@@ -17,7 +18,7 @@ RUN apk --update add ca-certificates git openssh bash jq make wget curl && \
     mv ./rke_linux-amd64 ./rke && \
     chmod +x kubectl helm tiller rke
 
-ADD entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 
 WORKDIR /code
 ENTRYPOINT ["/entrypoint.sh"]
