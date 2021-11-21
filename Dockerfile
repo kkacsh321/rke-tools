@@ -9,14 +9,14 @@ WORKDIR /bin
 
 RUN apk update && \
     apk add --no-cache \
-    ca-certificates \
+    ca-certificates=20191127-r7 \
     git=2.34.0-r0 \
-    openssh \
+    openssh=8.8_p1-r1 \
     bash=5.1.8-r0 \
-    jq \
-    make \
+    jq=1.6-r1 \
+    make=4.3-r0 \
     wget=1.21.2-r2 \ 
-    curl \
+    curl=7.80.0-r0 \
     && \
     wget -qO kubectl https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     wget -q https://get.helm.sh/helm-${HELM3_VERSION}-linux-amd64.tar.gz -qO - | tar xz && \
